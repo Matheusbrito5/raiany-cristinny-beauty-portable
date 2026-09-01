@@ -143,6 +143,30 @@
       .footer-bottom span:first-child { flex-basis:100%; }
     }
     @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *, *::before, *::after { transition-duration:.01ms !important; } }
+    /* Correção mobile: impedir overflow e sobreposição de elementos em telas estreitas. */
+    html, body { width:100%; max-width:100%; overflow-x:hidden; }
+    @media (max-width:820px) {
+      .site-header, .hero, .intro, .services, .space-section, .faq-section, .footer { width:100%; max-width:100%; overflow:hidden; }
+      .hero { padding-left:20px; padding-right:20px; }
+      .hero-copy, .hero-visual, .service-card, .space-copy, .faq-intro, .faq-list { min-width:0; max-width:100%; }
+      .hero-visual { width:100%; margin:0; }
+      .hero-image-wrap { height:auto; aspect-ratio:4 / 5; }
+      .hero-stamp { left:8px; bottom:24px; width:76px; height:76px; font-size:10px; }
+      .hero-caption { position:static; justify-content:space-between; margin-top:12px; padding:0 4px; }
+      .hero-note { flex-direction:column; gap:8px; }
+      .hero-note span + span { border-left:0; padding-left:0; }
+      .intro p, .section-heading > p, .space-copy > p, .faq-item p { overflow-wrap:anywhere; }
+      .service-image { height:auto; aspect-ratio:4 / 5; }
+      .space-section { gap:40px; }
+      .space-image { width:100%; height:auto; aspect-ratio:3 / 4; }
+      .space-image .large-lash-mark { top:-20px; right:0; font-size:76px; }
+      .space-copy { padding-left:0; }
+      .detail-row { gap:18px; flex-wrap:wrap; }
+      .footer-top { gap:30px; }
+      .footer-bottom { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+      .footer-bottom span:first-child { grid-column:1 / -1; flex-basis:auto; }
+      .floating-whatsapp { right:16px; bottom:16px; width:48px; height:48px; }
+    }
   </style>
 </head>
 <body>
